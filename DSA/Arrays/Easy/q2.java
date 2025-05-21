@@ -1,6 +1,5 @@
 
 // find secod largest and smallest
-import java.io.*;
 class q2
 {
 static private int secondSmallest(int[] arr, int n)

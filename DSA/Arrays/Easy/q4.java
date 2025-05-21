@@ -1,6 +1,4 @@
 // remove duplicates from sorted array
-
-import java.util.*;
 public class q4 {
     public static void main(String[] args) {
        int arr[] = {1,1,2,2,2,3,3};

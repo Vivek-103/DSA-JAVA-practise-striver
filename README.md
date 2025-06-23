@@ -1,6 +1,6 @@
 # 💻 DSA with Striver Sheet
 
-Welcome to my repository where I'm solving the **Striver DSA Sheet** – a powerful roadmap of 190+ handpicked coding questions covering **all major Data Structures and Algorithms**.
+Welcome to my repository where I'm solving the **Striver DSA Sheet** – a powerful roadmap of 450+ handpicked coding questions covering **all major Data Structures and Algorithms**.
 
 This repo is my journey to master DSA for coding interviews, competitive programming, and technical excellence 💪.
 

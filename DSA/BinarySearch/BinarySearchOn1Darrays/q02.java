@@ -1,5 +1,5 @@
 package BinarySearchOn1Darrays;
-// UPPERVOUND IMPLEMENTATION
+// UPPERBOUND IMPLEMENTATION
 import java.util.*;
 
 public class q02 {

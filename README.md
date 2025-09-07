@@ -15,7 +15,7 @@ This repo is my journey to master DSA for coding interviews, competitive program
 - Curated by [Raj Vikramaditya (Striver)](https://takeuforward.org/strivers-a2z-dsa-course/strivers-a2z-dsa-course-sheet-2/)
 - Covers:
   - Arrays
-  - Linked Lists
+  - Linked Lists 
   - Binary Trees
   - Recursion + Backtracking
   - Graphs

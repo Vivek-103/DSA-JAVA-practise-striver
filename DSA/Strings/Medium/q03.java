@@ -1,5 +1,5 @@
 package Medium;
-
+ 
 class q03 {
     // Time Complexity: O(n), where n is the length of the input string
     // We process each character at most once while parsing
@@ -66,3 +66,4 @@ class q03 {
         System.out.println("Input: \"" + input4 + "\" Output: " + solution.myAtoi(input4));
     }
 }
+

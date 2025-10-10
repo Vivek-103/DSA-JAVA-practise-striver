@@ -1,0 +1,143 @@
+
+=============================
+🧠 BIT MANIPULATION CHEAT SHEET
+=============================
+
+📘 INTRODUCTION:
+Bit manipulation is the process of performing operations directly on binary representations of integers using bitwise operators.
+
+--------------------------------------
+🔹 BASIC BITWISE OPERATORS
+--------------------------------------
+1️⃣ AND (&): 
+   - Sets each bit to 1 if both bits are 1.
+   Example: 5 & 3 = 0101 & 0011 = 0001 (1)
+
+2️⃣ OR (|): 
+   - Sets each bit to 1 if either bit is 1.
+   Example: 5 | 3 = 0101 | 0011 = 0111 (7)
+
+3️⃣ XOR (^): 
+   - Sets each bit to 1 if only one bit is 1.
+   Example: 5 ^ 3 = 0101 ^ 0011 = 0110 (6)
+
+4️⃣ NOT (~): 
+   - Inverts all bits (1 → 0, 0 → 1).
+   Example: ~5 = -(5 + 1) = -6
+
+5️⃣ LEFT SHIFT (<<): 
+   - Shifts bits to the left, fills with 0.
+   Example: 5 << 1 = 0101 << 1 = 1010 (10)
+
+6️⃣ RIGHT SHIFT (>>): 
+   - Shifts bits to the right.
+   Example: 5 >> 1 = 0101 >> 1 = 0010 (2)
+
+--------------------------------------
+🔹 COMMON BIT TRICKS
+--------------------------------------
+✅ Check if number is even or odd:
+   if (n & 1 == 0) → Even else Odd
+
+✅ Get i-th bit:
+   (n >> i) & 1
+
+✅ Set i-th bit:
+   n | (1 << i)
+
+✅ Clear i-th bit:
+   n & ~(1 << i)
+
+✅ Toggle i-th bit:
+   n ^ (1 << i)
+
+✅ Count set bits (1s):
+   while (n > 0): count += n & 1; n >>= 1
+
+✅ Check if power of two:
+   (n > 0) && (n & (n - 1)) == 0
+
+--------------------------------------
+🔹 BIT MANIPULATION PROBLEMS
+--------------------------------------
+
+1️⃣ Power of Two:
+   - Check if a number is power of 2.
+   Approach: n & (n - 1) == 0
+
+2️⃣ Count Bits to Flip A → B:
+   - XOR both numbers and count set bits.
+   Approach: xor = A ^ B; count bits in xor
+
+3️⃣ Find Odd Occurring Number:
+   - XOR all elements → gives the single odd one.
+
+4️⃣ Power Set Generation:
+   - Use bitmask 0 → 2ⁿ - 1 to form subsets.
+
+5️⃣ Find XOR of Range [L, R]:
+   - XOR(R) ^ XOR(L-1)
+   Function f(n): returns XOR from 1 → n
+      if n % 4 == 0 → n
+      if n % 4 == 1 → 1
+      if n % 4 == 2 → n+1
+      if n % 4 == 3 → 0
+
+6️⃣ Divide Two Integers (without / * %):
+   - Use bit shifting to find the quotient efficiently.
+
+--------------------------------------
+🔹 ADVANCED PROBLEMS
+--------------------------------------
+
+1️⃣ Single Number (Every number twice except one):
+   - XOR of all numbers gives the unique one.
+
+2️⃣ Single Number II (Every number thrice except one):
+   - Bit counting per bit position, mod by 3 → gives unique number.
+
+3️⃣ Single Number III (Every number twice except two):
+   - XOR all → get xor = a ^ b
+   - Find rightmost set bit → divide numbers into 2 groups.
+
+--------------------------------------
+🔹 COMPLEXITY SUMMARY
+--------------------------------------
+Most Bit Manipulation operations are O(1)
+Loop-based operations like bit counting → O(log n)
+
+--------------------------------------
+📊 VISUALIZATION EXAMPLE
+--------------------------------------
+Example: n = 13 (1101)
+
+Index: 3 2 1 0
+Bits:  1 1 0 1
+- Set 1st bit → 1111 (15)
+- Clear 2nd bit → 1001 (9)
+- Toggle 0th bit → 1100 (12)
+
+--------------------------------------
+🔹 USEFUL BUILT-IN METHODS (Java)
+--------------------------------------
+Integer.bitCount(n) → Counts set bits
+Integer.toBinaryString(n) → Binary representation
+Integer.highestOneBit(n) → Highest power of 2 <= n
+Integer.lowestOneBit(n) → Lowest set bit
+
+--------------------------------------
+⚡ QUICK PRACTICE PROBLEMS
+--------------------------------------
+1. Check power of 4
+2. Find missing number in array
+3. Count total set bits from 1 to N
+4. Swap two numbers using XOR
+5. Reverse bits of a number
+
+--------------------------------------
+🧩 SUMMARY
+--------------------------------------
+- XOR is extremely powerful for unique element problems.
+- Bit masking is essential for subset generation and flag handling.
+- Shifting is a faster alternative for multiplication/division by 2.
+- Mastering bit tricks optimizes performance in competitive coding.

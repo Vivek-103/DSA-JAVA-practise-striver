@@ -1,0 +1,151 @@
+Java Cheat Sheet: Basic Math Problems
+=====================================
+
+This guide provides the core logic, a key code snippet, and the time complexity for common number-based problems in Java.
+
+--------------------------------------------------
+1. Extract & Count Digits
+--------------------------------------------------
+
+Problem: Process or count the individual digits of a number.
+
+Core Logic: Use a while loop with modulo 10 (% 10) to get the last digit and division by 10 (/ 10) to remove it.
+
+Time Complexity: O(d) or O(log10(N)), where d is the number of digits.
+
+Edge Cases: Consider 0 and negative numbers.
+
+Key Snippet (Extraction & Count):
+    int num = 12345;
+    int count = 0;
+    if (num == 0) {
+        count = 1;
+        // The only digit is 0
+    }
+    while (num != 0) {
+        int digit = num % 10; // Extracts the last digit
+        // ... do something with the digit ...
+        count++;             // Increments the count
+        num /= 10;           // Removes the last digit
+    }
+
+--------------------------------------------------
+2. Reverse a Number
+--------------------------------------------------
+
+Problem: Reverse the order of digits in a number (e.g., 123 -> 321).
+
+Core Logic: In a loop, extract the last digit and build a new 'reversed' number by multiplying it by 10 and adding the new digit.
+
+Time Complexity: O(d) or O(log10(N)).
+
+Edge Cases: Handle potential integer overflow by using a 'long' for the reversed number.
+
+Key Snippet:
+    public int reverse(int num) {
+        long reversed = 0; // Use long to prevent overflow
+        while (num != 0) {
+            reversed = reversed * 10 + (num % 10);
+            num /= 10;
+        }
+        // Return 0 on overflow, a common convention
+        if (reversed > Integer.MAX_VALUE || reversed < Integer.MIN_VALUE) {
+            return 0;
+        }
+        return (int) reversed;
+    }
+
+--------------------------------------------------
+3. Check Palindrome
+--------------------------------------------------
+
+Problem: Check if a number reads the same forwards and backward (e.g., 121).
+
+Core Logic: Reverse the number using the logic above and compare it to the original number.
+
+Time Complexity: O(d) or O(log10(N)).
+
+Edge Cases: Negative numbers are not palindromes. Numbers ending in 0 (except 0 itself) are not palindromes.
+
+Key Snippet:
+    public boolean isPalindrome(int num) {
+        // A negative or a number ending in 0 (but not 0) can't be a palindrome
+        if (num < 0 || (num % 10 == 0 && num != 0)) {
+            return false;
+        }
+        int reversed = 0;
+        int original = num;
+        while (num != 0) {
+            reversed = reversed * 10 + (num % 10);
+            num /= 10;
+        }
+        return original == reversed;
+    }
+
+--------------------------------------------------
+4. Armstrong Number
+--------------------------------------------------
+
+Problem: Check if a number is the sum of its own digits, each raised to the power of the number of digits (e.g., 153 = 1^3 + 5^3 + 3^3).
+
+Core Logic: Requires two passes: first to count the digits, second to calculate the sum of powers.
+
+Time Complexity: O(d) or O(log10(N)).
+
+Key Snippet:
+    public boolean isArmstrong(int num) {
+        if (num < 0) return false;
+        int original = num;
+        int numDigits = String.valueOf(num).length(); // Easiest way to count
+        int sum = 0;
+        while (num != 0) {
+            int digit = num % 10;
+            sum += Math.pow(digit, numDigits);
+            num /= 10;
+        }
+        return sum == original;
+    }
+
+--------------------------------------------------
+5. Print all Divisors
+--------------------------------------------------
+
+Problem: Find all numbers that divide n without a remainder.
+
+Core Logic: Loop from 1 up to sqrt(n). If i is a divisor, its pair n/i is also a divisor.
+
+Time Complexity: O(sqrt(N)).
+
+Edge Cases: For perfect squares, the square root is paired with itself, so print it only once.
+
+Key Snippet (Unsorted):
+    public void printDivisors(int n) {
+        for (int i = 1; i * i <= n; i++) {
+            if (n % i == 0) {
+                System.out.print(i + " ");
+                if (i * i != n) { // Avoid printing square root twice
+                    System.out.print((n / i) + " ");
+                }
+            }
+        }
+    }
+
+--------------------------------------------------
+6. Find GCD / HCF (Greatest Common Divisor)
+--------------------------------------------------
+
+Problem: Find the largest integer that divides two numbers, a and b.
+
+Core Logic: Use the highly efficient Euclidean Algorithm, based on the principle that gcd(a, b) = gcd(b, a % b).
+
+Time Complexity: O(log(min(a, b))).
+
+Key Snippet (Iterative):
+    public int findGcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }

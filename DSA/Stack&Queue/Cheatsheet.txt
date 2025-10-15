@@ -1,0 +1,155 @@
+🧱 Stack using Array
+
+Visualization:
+Push(10), Push(20), Push(30) → [30, 20, 10]
+Pop() → removes 30
+
+Operations:
+
+Push → O(1)
+
+Pop → O(1)
+
+Peek → O(1)
+
+Logic:
+
+Use an array and top pointer.
+
+Increment top on push, decrement on pop.
+
+Check overflow (top == capacity-1) and underflow (top == -1).
+---------------------------------------------------------------------------------------------------------------------------------
+🌿 Stack using LinkedList
+
+Visualization:
+Push(10), Push(20), Push(30) → Top → 30 → 20 → 10
+Pop() → removes 30
+
+Operations:
+
+Push → O(1)
+
+Pop → O(1)
+
+Peek → O(1)
+
+Logic:
+
+Use a Node (data + next).
+
+Push → insert at head.
+
+Pop → remove from head.
+
+Top pointer always points to most recent element.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+📦 Queue using Array
+
+Visualization:
+Enqueue(10), Enqueue(20), Enqueue(30) → Front → [10, 20, 30] → Rear
+Dequeue() → removes 10
+
+Operations:
+
+Enqueue → O(1)
+
+Dequeue → O(1)
+
+Peek → O(1)
+
+Logic:
+
+Use circular array (mod operator).
+
+Maintain front, rear, size, and capacity.
+
+Enqueue → (rear + 1) % capacity
+
+Dequeue → (front + 1) % capacity
+
+Check overflow (size == capacity) and underflow (size == 0).
+------------------------------------------------------------------------------------------------------------------------------------------------
+🌱 Queue using LinkedList
+
+Visualization:
+Enqueue(10), Enqueue(20), Enqueue(30) → Front → 10 → 20 → 30 → Rear
+Dequeue() → removes 10
+
+Operations:
+
+Enqueue → O(1)
+
+Dequeue → O(1)
+
+Peek → O(1)
+
+Logic:
+
+Use Node (data + next).
+
+Maintain front and rear pointers.
+
+Enqueue → insert at tail.
+
+Dequeue → remove from head.
+
+Handle empty condition when front == null.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+🔁 Queue using Stack
+
+Visualization:
+Enqueue(10), Enqueue(20), Enqueue(30)
+→ Internally pushed into Stack1
+Dequeue() → Transfer elements to Stack2 (reverse order) → Pop top (10)
+
+Operations:
+
+Enqueue → O(1)
+
+Dequeue → O(n) (amortized O(1) using lazy transfer)
+
+Logic:
+
+Maintain two stacks:
+
+stack1 → for enqueue
+
+stack2 → for dequeue
+
+For dequeue:
+
+If stack2 is empty, transfer all from stack1 to stack2.
+
+Pop from stack2.
+
+Ensures FIFO using two LIFO structures.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+⚙️ Time Complexity Summary
+| Operation    | Stack (Array/LL) | Queue (Array/LL) | Queue using 2 Stacks |
+| ------------ | ---------------- | ---------------- | -------------------- |
+| Push/Enqueue | O(1)             | O(1)             | O(1)                 |
+| Pop/Dequeue  | O(1)             | O(1)             | O(n) amortized O(1)  |
+| Peek/Front   | O(1)             | O(1)             | O(1)                 |
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+🧩 Key Differences
+| Feature   | Stack                    | Queue                     |
+| --------- | ------------------------ | ------------------------- |
+| Principle | LIFO (Last In First Out) | FIFO (First In First Out) |
+| Insertion | One end (Top)            | Rear                      |
+| Deletion  | One end (Top)            | Front                     |
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+🧠 Revision Notes
+
+Stack → LIFO
+
+Queue → FIFO
+
+Stack can be implemented via Array or LinkedList easily.
+
+Queue can be circular (Array) or linked (LinkedList).
+
+Queue using 2 Stacks cleverly reverses order to simulate FIFO.
+  

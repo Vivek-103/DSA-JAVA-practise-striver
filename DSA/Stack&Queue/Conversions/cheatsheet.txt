@@ -1,0 +1,104 @@
+⚙️ Basic Definitions
+
+Infix Expression: Operator is between operands
+👉 Example: A + B
+
+Prefix Expression (Polish Notation): Operator before operands
+👉 Example: + A B
+
+Postfix Expression (Reverse Polish Notation): Operator after operands
+👉 Example: A B +
+
+| Operator | Meaning                           | Associativity |
+| -------- | --------------------------------- | ------------- |
+| ^        | Exponentiation                    | Right to Left |
+| *, /, %  | Multiplication, Division, Modulus | Left to Right |
+| +, -     | Addition, Subtraction             | Left to Right |
+===================================================================================================================================================
+🧱 1️⃣ Infix → Postfix
+🔹 Algorithm
+
+Initialize an empty stack for operators.
+
+Scan expression from left to right:
+
+If operand, add to result.
+
+If '(', push to stack.
+
+If ')', pop until '(' is found.
+
+If operator, pop higher or equal precedence operators from stack, then push the current one.
+
+Pop all remaining operators.
+=================================================================================================================================================
+🧱 2️⃣ Infix → Prefix
+🔹 Algorithm
+
+Reverse the infix expression.
+
+Swap '(' and ')'.
+
+Convert reversed expression to postfix using the above method.
+
+Reverse the postfix result → gives prefix.
+
+🧩 Visualization
+
+Infix: (A-B/C)*(A/K-L)
+Reverse → (L-K/A)*(C/B-A)
+Postfix of reversed → LKAK/-/CB-A-*
+Reverse again →
+✅ Prefix: *-A/BC-/AKL
+
+⏱️ Time Complexity
+
+O(N) — linear traversal + reversal operations
+==================================================================================================================================================
+🧱 3️⃣ Postfix → Infix
+🔹 Algorithm
+
+Initialize empty stack.
+
+Scan left to right:
+
+If operand, push it.
+
+If operator, pop two operands → combine:
+"(" + op2 + operator + op1 + ")"
+(push this back to stack)
+
+Final stack top = infix expression.
+==================================================================================================================================================
+4️⃣ Prefix → Infix
+🔹 Algorithm
+
+Initialize empty stack.
+
+Scan right to left:
+
+If operand, push it.
+
+If operator, pop two operands → combine:
+"(" + op1 + operator + op2 + ")"
+(push back)
+
+Final stack top = infix expression.
+=================================================================================================================================================
+
+| Conversion      | Core Idea                   | Direction of Scan | Stack Content | Complexity |
+| --------------- | --------------------------- | ----------------- | ------------- | ---------- |
+| Infix → Postfix | Use stack for operators     | Left → Right      | Operators     | O(N)       |
+| Infix → Prefix  | Reverse + Postfix + Reverse | Right → Left      | Operators     | O(N)       |
+| Postfix → Infix | Combine top 2 operands      | Left → Right      | Operands      | O(N)       |
+| Prefix → Infix  | Combine top 2 operands      | Right → Left      | Operands      | O(N)       |
+
+===================================================================================================================================================
+🧠 Quick Revision Tips
+
+Always use stack for temporary storage.
+For Infix → Postfix/Prefix → check precedence.
+For Postfix/Prefix → build string expressions.
+Parentheses always handled inside stack.
+Practice with mixed operators like:
+(A+B)*(C-D)/E^F

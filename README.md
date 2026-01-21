@@ -6,9 +6,10 @@ This repo is my journey to master DSA for coding interviews, competitive program
 
 --- 
 
- ## 🧠 **Goal:** Complete the full sheet with optimized solutions + explanations
+ ## 🧠 **Goal:** Complete the full sheet with optimized solutions + explanations.
 
 ---
+
 
 ## 📚 What is the Striver DSA Sheet?
 
